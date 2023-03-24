@@ -8,6 +8,18 @@
 import Foundation
 import FirebaseAuth
 
+/*
+ Different Functionalities:
+ 
+ 1. sign-up
+ 2. sign-in
+ 3. sign-out
+ 4. reset password
+ 5. update email
+ 6. update password
+ 
+ */
+
 struct AuthDataResultModel {
     let uid: String
     let email: String?
@@ -32,8 +44,15 @@ final class AuthenticationManager {
         return AuthDataResultModel(user: user)
     }
     
+    @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    @discardableResult
+    func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
         return AuthDataResultModel(user: authDataResult.user)
     }
     
