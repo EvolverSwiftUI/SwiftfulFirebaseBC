@@ -14,6 +14,10 @@ final class SettingsViewModel: ObservableObject {
         try AuthenticationManager.shared.signOut()
     }
     
+    func deleteAccount() async throws {
+        try await AuthenticationManager.shared.delete()
+    }
+    
     func resetPassword() async throws {
         let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
         guard let email = authUser.email else {
@@ -47,6 +51,7 @@ struct SettingsView: View {
                 Task {
                     do {
                         try viewModel.signOut()
+                        print("LOG OUT!")
                         showSignInView = true
                     } catch {
                         print("Error: ", error.localizedDescription)
@@ -54,6 +59,21 @@ struct SettingsView: View {
                 }
             }
             
+            Button(role: .destructive) {
+                Task {
+                    do {
+                        try await viewModel.deleteAccount()
+                        print("ACCOUNT DELETED!")
+                        showSignInView = true
+                    } catch {
+                        print("Error: ", error.localizedDescription)
+                    }
+                }
+                
+            } label: {
+                Text("Delete account")
+            }
+
             emailSection
         }
         .navigationTitle("Settings")

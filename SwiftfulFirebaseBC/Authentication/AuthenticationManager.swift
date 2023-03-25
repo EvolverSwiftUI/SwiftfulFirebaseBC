@@ -17,6 +17,7 @@ import FirebaseAuth
  4. reset password
  5. update email
  6. update password
+ 7. delete user
  
  */
 
@@ -56,10 +57,6 @@ final class AuthenticationManager {
         return AuthDataResultModel(user: authDataResult.user)
     }
     
-    func signOut() throws {
-        try Auth.auth().signOut()
-    }
-    
     func resetPassword(email: String) async throws {
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
@@ -78,5 +75,18 @@ final class AuthenticationManager {
         }
         
         try await user.updateEmail(to: email)
+    }
+    
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+
+    func delete() async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badURL)
+        }
+
+        try await user.delete()
     }
 }
