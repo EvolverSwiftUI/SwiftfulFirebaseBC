@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GIDClientID</key>
+	<string>858253052097-0n5ibjj8a595thh32jcvleand57hrjd5.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Google Sign In</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.858253052097-0n5ibjj8a595thh32jcvleand57hrjd5</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

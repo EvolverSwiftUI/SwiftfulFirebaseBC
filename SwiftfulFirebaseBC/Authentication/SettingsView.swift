@@ -69,7 +69,6 @@ struct SettingsView: View {
                         print("Error: ", error.localizedDescription)
                     }
                 }
-                
             } label: {
                 Text("Delete account")
             }
