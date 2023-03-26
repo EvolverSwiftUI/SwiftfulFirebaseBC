@@ -10,6 +10,14 @@ import SwiftUI
 @MainActor
 final class SettingsViewModel: ObservableObject {
     
+    @Published var authProviders: [AuthProviderOption] = []
+    
+    func loadAuthProviders() {
+        if let providers = try? AuthenticationManager.shared.getProviders() {
+            authProviders = providers
+        }
+    }
+    
     func signOut() throws {
         try AuthenticationManager.shared.signOut()
     }
@@ -73,7 +81,12 @@ struct SettingsView: View {
                 Text("Delete account")
             }
 
-            emailSection
+            if viewModel.authProviders.contains(.email) {
+                emailSection
+            }
+        }
+        .onAppear {
+            viewModel.loadAuthProviders()
         }
         .navigationTitle("Settings")
     }

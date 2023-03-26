@@ -13,6 +13,7 @@
 		C79A170A29CED5CA009A6D41 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C79A170929CED5CA009A6D41 /* GoogleSignIn */; };
 		C79A170C29CED5CA009A6D41 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C79A170B29CED5CA009A6D41 /* GoogleSignInSwift */; };
 		C79A171029CEE51B009A6D41 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79A170F29CEE51B009A6D41 /* Utilities.swift */; };
+		C79A171229D0151A009A6D41 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79A171129D0151A009A6D41 /* SignInGoogleHelper.swift */; };
 		C7D9469A29C03166009ED9BC /* SwiftfulFirebaseBCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D9469929C03166009ED9BC /* SwiftfulFirebaseBCApp.swift */; };
 		C7D9469E29C03168009ED9BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D9469D29C03168009ED9BC /* Assets.xcassets */; };
 		C7D946A129C03168009ED9BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D946A029C03168009ED9BC /* Preview Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		C73C703329C757F60047CBDE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C79A170D29CED7C5009A6D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C79A170F29CEE51B009A6D41 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C79A171129D0151A009A6D41 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
 		C7D9469629C03166009ED9BC /* SwiftfulFirebaseBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulFirebaseBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D9469929C03166009ED9BC /* SwiftfulFirebaseBCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulFirebaseBCApp.swift; sourceTree = "<group>"; };
 		C7D9469D29C03168009ED9BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				C7D946D429C44FAF009ED9BC /* SignInEmailView.swift */,
 				C73C703329C757F60047CBDE /* SettingsView.swift */,
 				C73C702F29C7498A0047CBDE /* AuthenticationManager.swift */,
+				C79A171129D0151A009A6D41 /* SignInGoogleHelper.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79A171229D0151A009A6D41 /* SignInGoogleHelper.swift in Sources */,
 				C73C703429C757F60047CBDE /* SettingsView.swift in Sources */,
 				C7D9469A29C03166009ED9BC /* SwiftfulFirebaseBCApp.swift in Sources */,
 				C73C703229C7546B0047CBDE /* RootView.swift in Sources */,
