@@ -135,3 +135,24 @@ extension AuthenticationManager {
         return AuthDataResultModel(user: authDataResult.user)
     }
 }
+
+// MARK: SIGN IN ANONYMOUS
+extension AuthenticationManager {
+    
+    @discardableResult
+    func signInAnonymous() async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signInAnonymously()
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    func linkEmail(email: String, password: String) async throws -> AuthDataResultModel {
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badURL)
+        }
+        
+        let authDataResult = try await user.link(with: credential)
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+}

@@ -17,6 +17,27 @@ struct AuthenticationView: View {
     var body: some View {
         VStack {
             
+            Button {
+                Task {
+                    do {
+                        try await viewModel.signInAnonymous()
+                        showSignInView = false
+                        print("ANONYMOUS SIGN IN!")
+                    } catch {
+                        print("ERROR: ", error.localizedDescription)
+                    }
+                }
+            } label: {
+                Text("Sign In Anonymously")
+                    .font(.headline)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .background(Color.orange)
+                    .cornerRadius(10)
+            }
+
+
             NavigationLink {
                 SignInEmailView(showSignInView: $showSignInView)
             } label: {
