@@ -44,9 +44,14 @@ struct SettingsView: View {
             if viewModel.authProviders.contains(.email) {
                 emailSection
             }
+            
+            if viewModel.authUser?.isAnonymous == true {
+                anonymousSection
+            }
         }
         .onAppear {
             viewModel.loadAuthProviders()
+            viewModel.loadAuthUser()
         }
         .navigationTitle("Settings")
     }
@@ -98,6 +103,35 @@ extension SettingsView {
             }
         } header: {
             Text("Email functions")
+        }
+    }
+    
+    var anonymousSection: some View {
+        Section {
+            Button("Link Google Account") {
+                Task {
+                    do {
+                        try await viewModel.linkGoogleAccount()
+                        print("GOOGLE LINKED!".uppercased())
+                    } catch {
+                        print("Error: ", error.localizedDescription)
+                    }
+                }
+            }
+            
+            Button("Link Email Account") {
+                Task {
+                    do {
+                        try await viewModel.linkEmailAccount()
+                        print("EMAIL LINKED!".uppercased())
+                    } catch {
+                        print("Error: ", error.localizedDescription)
+                    }
+                }
+            }
+            
+        } header: {
+            Text("Create account")
         }
     }
 }

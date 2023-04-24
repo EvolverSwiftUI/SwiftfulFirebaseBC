@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 @MainActor
 final class ProfileViewModel: ObservableObject {
@@ -14,6 +16,14 @@ final class ProfileViewModel: ObservableObject {
     
     func loadCurrentUser() throws {
         self.user = try AuthenticationManager.shared.getAuthenticatedUser()
+    }
+    
+    func getUser(userId: String) async throws -> String {
+        let snapshot = try await Firestore.firestore().collection("users").document(userId).getDocument()
+        guard let data = snapshot.data() else {
+            throw URLError(.badServerResponse)
+        }
+        return ""
     }
 }
 
